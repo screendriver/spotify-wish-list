@@ -21,5 +21,8 @@
         }
       }
     }
+  },
+  "rules": {
+    "inferno/prop-types": "off"
   }
 }

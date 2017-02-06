@@ -1,7 +1,10 @@
 import Inferno from 'inferno';
+import Grid from './Grid';
 
 const App = () => (
-  <div>App</div>
+  <Grid>
+    <div>App</div>
+  </Grid>
 );
 
 export default App;
