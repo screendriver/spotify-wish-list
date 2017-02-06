@@ -6,8 +6,6 @@ const DashboardPlugin = require('webpack-dashboard/plugin');
 const merge = require('webpack-merge');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-const TARGET = process.env.npm_lifecycle_event;
-
 const common = {
   entry: {
     app: './src/index',
@@ -70,12 +68,45 @@ const common = {
   },
 };
 
-if (TARGET === 'build') {
-  module.exports = common;
-} else if (TARGET === 'serve') {
-  module.exports = merge(common, {
-    plugins: [
-      new DashboardPlugin(),
-    ],
-  });
+switch (process.env.npm_lifecycle_event) {
+  case 'serve':
+    module.exports = merge(common, {
+      plugins: [
+        new DashboardPlugin(),
+      ],
+    });
+    break;
+  case 'build':
+    module.exports = merge(common, {
+      plugins: [
+        new HtmlWebpackPlugin({
+          template: './src/index.html.handlebars',
+          minify: {
+            collapseWhitespace: true,
+            collapseInlineTagWhitespace: true,
+          },
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+          compress: {
+            warnings: true,
+          },
+          output: {
+            comments: false,
+          },
+          sourceMap: false,
+        }),
+        new webpack.LoaderOptionsPlugin({
+          minimize: true,
+          debug: false,
+        }),
+        new webpack.DefinePlugin({
+          'process.env': {
+            NODE_ENV: JSON.stringify('production'),
+          },
+        }),
+      ],
+    });
+    break;
+  default:
+    module.exports = common;
 }
