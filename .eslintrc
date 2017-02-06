@@ -1,3 +1,14 @@
 {
-  "extends": "airbnb"
+  "extends": ["airbnb-base", "plugin:inferno/recommended"],
+  "env": {
+    "browser": true
+  },
+  "plugins": [
+    "inferno"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  }
 }

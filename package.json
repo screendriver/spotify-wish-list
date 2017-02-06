@@ -7,8 +7,8 @@
   "author": "Christian Rackerseder <git@echooff.de>",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint src test",
-    "test": "npm run lint && tape -r babel-register test/**/*.js | faucet",
+    "lint": "eslint --ext .js,.jsx src test",
+    "test": "npm run lint && tape -r babel-register test/**/*.js* | faucet",
     "build": "webpack",
     "serve": "webpack-dashboard -- webpack-dev-server --open"
   },
@@ -28,10 +28,9 @@
     "clean-webpack-plugin": "^0.1.15",
     "css-loader": "^0.26.1",
     "eslint": "^3.15.0",
-    "eslint-config-airbnb": "^14.1.0",
+    "eslint-config-airbnb-base": "^11.1.0",
     "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^4.0.0",
-    "eslint-plugin-react": "^6.9.0",
+    "eslint-plugin-inferno": "^6.9.2",
     "faucet": "^0.0.1",
     "handlebars": "^4.0.6",
     "handlebars-loader": "^1.4.0",
