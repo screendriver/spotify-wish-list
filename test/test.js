@@ -1,4 +1,4 @@
-import * as test from 'tape';
+import test from 'tape';
 
 test('dummy test', t => {
   t.pass();
