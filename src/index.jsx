@@ -1,10 +1,19 @@
 import 'purecss';
+
 import Inferno, { render } from 'inferno';
+import { Provider } from 'inferno-redux';
+import { createStore } from 'redux';
 
 import './styles/main.scss';
 
-const MyComponent = () => (
-  <div>MyComponent</div>
-);
+import App from './components/App';
+import reducers from './reducers';
 
-render(<MyComponent />, document.getElementById('root'));
+const store = createStore(reducers);
+
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root'),
+);

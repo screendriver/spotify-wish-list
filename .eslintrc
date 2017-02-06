@@ -10,5 +10,16 @@
     "ecmaFeatures": {
       "jsx": true
     }
+  },
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": {
+          "resolve": {
+            "extensions": [".js", ".jsx", ".json"]
+          }
+        }
+      }
+    }
   }
 }

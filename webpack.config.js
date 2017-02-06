@@ -14,7 +14,9 @@ const common = {
     vendor: [
       'inferno',
       'inferno-component',
+      'inferno-redux',
       'inferno-router',
+      'redux',
       'purecss',
     ],
   },
@@ -47,8 +49,8 @@ const common = {
         { loader: 'style-loader' },
         { loader: 'css-loader' },
         { loader: 'sass-loader' },
-      ]
-    }]
+      ],
+    }],
   },
   plugins: [
     new CleanWebpackPlugin(['build']),
@@ -66,7 +68,7 @@ const common = {
     inline: true,
     historyApiFallback: true,
   },
-}
+};
 
 if (TARGET === 'build') {
   module.exports = common;
@@ -74,6 +76,6 @@ if (TARGET === 'build') {
   module.exports = merge(common, {
     plugins: [
       new DashboardPlugin(),
-    ]
+    ],
   });
 }
