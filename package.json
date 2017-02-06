@@ -8,9 +8,15 @@
   "license": "MIT",
   "scripts": {
     "lint": "eslint --ext .js,.jsx src test",
-    "test": "npm run lint && tape -r babel-register test/**/*.js* | faucet",
+    "test": "npm run lint && ava",
     "build": "webpack",
     "serve": "webpack-dashboard -- webpack-dev-server --open"
+  },
+  "ava": {
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
   },
   "dependencies": {
     "inferno": "^1.2.2",
@@ -21,6 +27,7 @@
     "redux": "^3.6.0"
   },
   "devDependencies": {
+    "ava": "^0.18.1",
     "babel-core": "^6.22.1",
     "babel-loader": "^6.2.10",
     "babel-plugin-inferno": "^1.8.0",
@@ -41,7 +48,6 @@
     "node-sass": "^4.5.0",
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
-    "tape": "^4.6.3",
     "webpack": "^2.2.1",
     "webpack-dashboard": "^0.3.0",
     "webpack-dev-server": "^2.3.0",
