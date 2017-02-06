@@ -8,7 +8,8 @@
   "license": "MIT",
   "scripts": {
     "clean": "rimraf build",
-    "test": "ts-node -P test node_modules/tape/bin/tape test/**/*.ts* | faucet",
+    "lint": "tslint \"src/**/*.tsx\" \"src/**/*.ts\" \"test/**/*.ts\" \"test/**/*.tsx\"",
+    "test": "npm run lint && ts-node -P test node_modules/tape/bin/tape test/**/*.ts* | faucet",
     "build": "webpack",
     "serve": "webpack-dev-server"
   },
