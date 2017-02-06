@@ -11,9 +11,17 @@ import reducers from './reducers';
 
 const store = createStore(reducers);
 
-render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root'),
-);
+function renderRoot() {
+  render(
+    <Provider store={store}>
+      <App />
+    </Provider>,
+    document.getElementById('root'),
+  );
+}
+
+if (process.env.NODE_ENV === 'production') {
+  renderRoot();
+} else {
+  System.import('inferno-devtools').then(renderRoot);
+}

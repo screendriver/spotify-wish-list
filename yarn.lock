@@ -2876,6 +2876,13 @@ inferno-create-element@1.2.2:
   dependencies:
     inferno "1.2.2"
 
+inferno-devtools@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/inferno-devtools/-/inferno-devtools-1.2.2.tgz#8d5d64db9784df034a7ba46e04935c458235d2ea"
+  dependencies:
+    inferno "1.2.2"
+    inferno-component "1.2.2"
+
 inferno-redux@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/inferno-redux/-/inferno-redux-1.2.2.tgz#37ba738339bea0b30253355a3300e802aaa70407"
