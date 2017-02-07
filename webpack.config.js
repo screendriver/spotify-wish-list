@@ -15,6 +15,7 @@ const common = {
       'inferno-redux',
       'inferno-router',
       'redux',
+      'redux-devtools-extension/logOnlyInProduction',
       'purecss',
     ],
   },
