@@ -8,7 +8,8 @@
   "license": "MIT",
   "scripts": {
     "lint": "eslint --ext .js,.jsx src test",
-    "test": "npm run lint && ava",
+    "pretest": "npm run lint",
+    "test": "cross-env BABEL_ENV=test ava",
     "build": "webpack",
     "serve": "webpack-dashboard -- webpack-dev-server --open"
   },
@@ -36,6 +37,7 @@
     "babel-preset-es2015": "^6.22.0",
     "babel-register": "^6.22.0",
     "clean-webpack-plugin": "^0.1.15",
+    "cross-env": "^3.1.4",
     "css-loader": "^0.26.1",
     "eslint": "^3.15.0",
     "eslint-config-airbnb-base": "^11.1.0",
