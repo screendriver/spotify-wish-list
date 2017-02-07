@@ -6,7 +6,7 @@ const mapStateToProps = () => {
 
 };
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   onLogin: (email, password, remember) => {
     dispatch(login(email, password, remember));
   },

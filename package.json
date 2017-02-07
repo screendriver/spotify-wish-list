@@ -51,6 +51,7 @@
     "inferno-devtools": "^1.2.2",
     "node-sass": "^4.5.0",
     "sass-loader": "^4.1.1",
+    "sinon": "2.0.0-pre.5",
     "style-loader": "^0.13.1",
     "webpack": "^2.2.1",
     "webpack-dashboard": "^0.3.0",
