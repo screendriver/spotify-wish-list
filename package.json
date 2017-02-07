@@ -24,7 +24,8 @@
     "inferno-redux": "^1.2.2",
     "inferno-router": "^1.2.2",
     "purecss": "^0.6.2",
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "redux-devtools-extension": "^2.13.0"
   },
   "devDependencies": {
     "ava": "^0.18.1",
