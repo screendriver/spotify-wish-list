@@ -15,6 +15,7 @@ const common = {
       'inferno-component',
       'inferno-redux',
       'inferno-router',
+      'regenerator-runtime/runtime',
       'redux',
       'redux-devtools-extension/logOnlyInProduction',
       'redux-thunk',
@@ -56,6 +57,9 @@ const common = {
   },
   plugins: [
     new CleanWebpackPlugin(['build']),
+    new webpack.ProvidePlugin({
+      regeneratorRuntime: 'regenerator-runtime/runtime',
+    }),
     new HtmlWebpackPlugin({
       template: './src/index.html.handlebars',
     }),

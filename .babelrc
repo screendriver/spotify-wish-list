@@ -2,15 +2,16 @@
   "env": {
     "test": {
       "presets": [
-        ["es2015"]
+        ["latest"]
       ],
     }
   },
   "presets": [
-    ["es2015", {"loose": true, "modules": false}]
+    ["latest", {"loose": true, "modules": false}]
   ],
   "plugins": [
-    "babel-plugin-syntax-jsx",
-    ["babel-plugin-inferno", {"imports": true}]
+    "transform-regenerator",
+    "syntax-jsx",
+    ["inferno", {"imports": true}]
   ]
 }
