@@ -2,15 +2,19 @@ import 'purecss';
 
 import Inferno, { render } from 'inferno';
 import { Provider } from 'inferno-redux';
-import { createStore } from 'redux';
-import { devToolsEnhancer } from 'redux-devtools-extension/logOnlyInProduction';
+import { applyMiddleware, createStore } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension/logOnlyInProduction';
+import thunk from 'redux-thunk';
 
 import './styles/main.scss';
 
 import App from './components/App';
-import reducers from './reducers';
+import rootReducer from './reducers';
 
-const store = createStore(reducers, devToolsEnhancer());
+const store = createStore(
+  rootReducer,
+  composeWithDevTools(applyMiddleware(thunk)),
+);
 
 function renderRoot() {
   render(
