@@ -8,8 +8,9 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const common = {
   entry: {
-    app: './src/index',
+    app: ['core-js/es6/promise', 'whatwg-fetch', './src/index'],
     vendor: [
+      'core-js/es6/promise',
       'inferno',
       'inferno-component',
       'inferno-redux',
@@ -18,6 +19,7 @@ const common = {
       'redux-devtools-extension/logOnlyInProduction',
       'redux-thunk',
       'purecss',
+      'whatwg-fetch',
     ],
   },
   output: {
