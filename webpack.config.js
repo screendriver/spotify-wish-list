@@ -35,12 +35,6 @@ const common = {
       test: /\.jsx?$/,
       loader: 'babel-loader',
     }, {
-      test: /\.handlebars$/,
-      loader: 'handlebars-loader',
-      options: {
-        inlineRequires: '\/img\/',
-      },
-    }, {
       test: /\.css$/,
       use: [
         { loader: 'style-loader' },
@@ -61,7 +55,7 @@ const common = {
       regeneratorRuntime: 'regenerator-runtime/runtime',
     }),
     new HtmlWebpackPlugin({
-      template: './src/index.html.handlebars',
+      template: './src/index.html',
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: ['vendor', 'manifest'],
@@ -88,7 +82,7 @@ switch (process.env.npm_lifecycle_event) {
     module.exports = merge(common, {
       plugins: [
         new HtmlWebpackPlugin({
-          template: './src/index.html.handlebars',
+          template: './src/index.html',
           minify: {
             collapseWhitespace: true,
             collapseInlineTagWhitespace: true,
