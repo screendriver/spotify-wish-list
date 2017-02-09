@@ -5,6 +5,12 @@ const failPlugin = require('webpack-fail-plugin');
 const DashboardPlugin = require('webpack-dashboard/plugin');
 const merge = require('webpack-merge');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+const extractSass = new ExtractTextPlugin({
+  filename: '[name].[contenthash].css',
+  disable: process.env.npm_lifecycle_event !== 'build',
+});
 
 const common = {
   entry: {
@@ -42,11 +48,14 @@ const common = {
       ],
     }, {
       test: /\.scss$/,
-      use: [
-        { loader: 'style-loader' },
-        { loader: 'css-loader' },
-        { loader: 'sass-loader' },
-      ],
+      use: extractSass.extract({
+        use: [
+          { loader: 'css-loader' },
+          { loader: 'sass-loader' },
+        ],
+        // use style-loader in development
+        fallback: 'style-loader',
+      }),
     }],
   },
   plugins: [
@@ -61,6 +70,7 @@ const common = {
       name: ['vendor', 'manifest'],
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
+    extractSass,
     failPlugin,
   ],
   devtool: 'inline-source-map',
@@ -107,6 +117,7 @@ switch (process.env.npm_lifecycle_event) {
           },
         }),
       ],
+      devtool: false,
     });
     break;
   default:
